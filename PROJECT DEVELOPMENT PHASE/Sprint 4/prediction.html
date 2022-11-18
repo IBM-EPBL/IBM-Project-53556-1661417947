@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prediction</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+            }
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            .grid {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            .grid .header {
+                width: 100%;
+                height: 80px;
+                display: flex;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #090909;
+            }
+            .grid .header .nav li {
+                display: inline;
+                list-style: none;
+                margin: 0px 20px;
+            }
+            .grid .header .topic {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #dddddd;
+            }
+            .grid .header .nav,
+            .grid .header .topic {
+                margin: 0px 20px;
+            }
+            .grid .header .nav li a {
+                color: #dddddd;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="grid">
+            <div class="header">
+                <div class="topic">
+                    <p>Diabetic Retinopathy Classification</p>
+                </div>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li id="logout"><a href="logout.html">Logout</a></li>
+                </ul>
+            </div>
+            </section>
+               <!-- <script>
+            var storage = window.localStorage;
+            var isAuth = storage.getItem("isAuth");
+            var logout = document.getElementById("logout");
+            if (!JSON.parse(isAuth)) {
+                alert("You will be redirected to login page");
+                window.location.href = "login.html";
+            }
+            logout.addEventListener("click", () => {
+                storage.setItem("isAuth", false);
+                window.location.href = "logout.html";
+            });
+        </script> -->
+    </body>
+</html>
