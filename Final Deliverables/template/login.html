@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Login</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+            }
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .login {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .login .login-container {
+                width: 380px;
+                height: max-content;
+                display: flex;
+                border: 1px solid gray;
+                margin: 24px auto;
+                flex-direction: column;
+                align-items: center;
+            }
+            .login .login-container img {
+                max-width: 80px;
+                margin: 24px auto;
+            }
+            .login .login-container input {
+                margin: 12px auto;
+                width: 80%;
+                height: 40px;
+                text-indent: 10px;
+                font-size: 1.1rem;
+            }
+            .login .login-container button {
+                width: 80%;
+                height: 40px;
+                margin: 14px auto;
+                margin-bottom: 24px;
+                color: white;
+                cursor: pointer;
+                border: none;
+                background-color: #111321;
+            }
+            .login .login-container .register-link {
+                width: 100%;
+                text-align: center;
+                height: max-content;
+                background-color: #aaaaaa;
+            }
+            .login .login-container .register-link p {
+                padding: 12px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="login">
+            <div class="login-container">
+                <img src="assets/login.png" alt="" />
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value=""
+                    name="email"
+                    id="email"
+                />
+
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    value=""
+                    name="password"
+                    id="password"
+                />
+                <button id="btn">Login</button>
+                <div class="register-link">
+                    <p>
+                        Don't have an account?
+                        <a href="register.html">Register</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <script>
+            var storage = window.localStorage;
+            var cred = [
+                {
+                    email: "",
+                    password: "",
+                },
+            ];
+            var isAuth = storage.getItem("isAuth");
+            var credentials = JSON.parse(storage.getItem("credentials"));
+            if (JSON.parse(isAuth)) {
+                alert("You are already logged in");
+                window.location.href = "index.html";
+            }
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var button = document.getElementById("btn");
+            email.addEventListener("input", (ev) => {
+                cred.email = ev.target.value;
+            });
+            password.addEventListener("input", (ev) => {
+                cred.password = ev.target.value;
+            });
+            button.addEventListener("click", (ev) => {
+                if (!credentials) {
+                    alert("No account found. Create New account.");
+                    window.location.href = "register.html";
+                } else {
+                    credentials?.map((val) => {
+                        if (cred.email == val.email) {
+                            if (cred.password == val.password) {
+                                window.localStorage.setItem("isAuth", true);
+                                window.location.href = "index.html";
+                            } else {
+                                alert("Enter correct password");
+                            }
+                        } else {
+                            alert("Email Not Found. Try to create new account");
+                        }
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

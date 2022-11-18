@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Logout</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+            }
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            .logout {
+                width: 100%;
+                height: max-content;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .logout h2 {
+                margin: 12px auto;
+                font-size: 2rem;
+            }
+            .logout p {
+                color: green;
+                margin: 12px 0px 10px 0px;
+                font-size: 1.1rem;
+            }
+            .logout button {
+                width: 200px;
+                height: 35px;
+                color: white;
+                cursor: pointer;
+                border: none;
+                background-color: #111321;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="logout">
+            <h2>Successfully Logged Out!</h2>
+            <p>Login for more information</p>
+            <button id="btn">Login</button>
+        </section>
+        <script>
+            var btn = document.getElementById("btn");
+            btn.addEventListener("click", () => {
+                window.location.href = "login.html";
+            });
+        </script>
+    </body>
+</html>
